@@ -26,9 +26,9 @@ jobs:
       run: |
         ssh -o StrictHostKeyChecking=no ubuntu@35.157.147.193 << 'EOF'
           cd angular-dotnet-core-docker
-          docker compose down
+          sudo docker compose down
           cd ..
           rm -rf angular-dotnet-core-docker
           git clone https://github.com/djordjekrsmanovic/angular-dotnet-core-docker.git
-          cd angular-dotnet-core-docker && docker compose up --no-cache
+          cd angular-dotnet-core-docker && sudo docker compose up --no-cache
         EOF
