@@ -25,6 +25,10 @@ jobs:
     - name: SSH into Lightsail
       run: |
         ssh -o StrictHostKeyChecking=no ubuntu@35.157.147.193 << 'EOF'
-          echo "Connected to Lightsail"
-          # Add commands to run on your Lightsail instance here
+          cd angular-dotnet-core-docker
+          docker compose down
+          cd ..
+          rm -rf angular-dotnet-core-docker
+          git clone https://github.com/djordjekrsmanovic/angular-dotnet-core-docker.git
+          cd angular-dotnet-core-docker && docker compose up --no-cache
         EOF
