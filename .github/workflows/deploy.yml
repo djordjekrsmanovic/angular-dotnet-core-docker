@@ -20,7 +20,7 @@ jobs:
     - name: Add SSH key to SSH agent
       uses: webfactory/ssh-agent@v0.5.4
       with:
-        ssh-private-key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
+        ssh-private-key: ${{ secrets.LIGHTSTAIL_SSH_KEY }}
 
     - name: SSH into Lightsail
       run: |
