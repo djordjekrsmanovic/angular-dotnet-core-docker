@@ -1,0 +1,1 @@
+ssh -L 5050:localhost:5050 -i ./LightsailDefaultKey-eu-central-1.pem  ubuntu@35.157.147.193 pg admin
