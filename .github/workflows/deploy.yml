@@ -1,0 +1,35 @@
+name: SSH into Lightsail
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  ssh-to-lightsail:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Install SSH Client
+      run: sudo apt-get install -y ssh
+
+    - name: Add SSH key to SSH agent
+      uses: webfactory/ssh-agent@v0.5.4
+      with:
+        ssh-private-key: ${{ secrets.LIGHTSTAIL_SSH_KEY }}
+
+    - name: SSH into Lightsail
+      run: |
+        ssh -o StrictHostKeyChecking=no ubuntu@35.157.147.193 << 'EOF'
+          cd angular-dotnet-core-docker
+          sudo docker compose down
+          cd ..
+          rm -rf angular-dotnet-core-docker
+          git clone https://github.com/djordjekrsmanovic/angular-dotnet-core-docker.git
+          sudo docker system prune -f
+          cd angular-dotnet-core-docker && sudo docker compose build --no-cache && sudo docker compose up -d
+        EOF
