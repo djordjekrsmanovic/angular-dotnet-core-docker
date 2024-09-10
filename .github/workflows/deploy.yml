@@ -24,7 +24,7 @@ jobs:
 
     - name: SSH into Lightsail
       run: |
-        ssh -o StrictHostKeyChecking=no ubuntu@35.157.147.193 << 'EOF'
+        ssh -o StrictHostKeyChecking=no ubuntu@$LIGHTSTAIL_IP << 'EOF'
           cd angular-dotnet-core-docker
           sudo docker compose down
           cd ..
