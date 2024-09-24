@@ -1,5 +1,5 @@
 # Full Stack (dotnet, angular and postgres) boilerplate with Docker
-### About (Dotnet - Angular - PostgresSQL)
+### About (Dotnet - Angular - PostgresSQL)  
 This project is intended to provide a starting point for building full-stack web applicatioin. The stack is made of Dotnet(7) WebApi, Angular (18.1.0), PostgresSQL. The focus of this project to show case the possible way to run a real application (Dotnet, Angular and PostgresSQL) using docker for development enviornment and produciton mode.
 
 This is a simple web application. It has working user registration, login page and there is a complete example of CRUD which contains example for Angular Routing and dotnet rest api samples. Also, rest services are secure using JWT. 
